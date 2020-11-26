@@ -19,18 +19,33 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewholder>
 {
-    public myadapter(@NonNull FirebaseRecyclerOptions<model> options)
+    Context context;
+    public myadapter(@NonNull FirebaseRecyclerOptions<model> options, Context context)
 
     {
         super(options);
+        this.context=context;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull model model)
+    protected void onBindViewHolder(@NonNull myviewholder holder, int position, @NonNull final model model)
     {
        holder.name.setText(model.getName());
        holder.rate.setText(model.getRate());
        Glide.with(holder.img.getContext()).load(model.getPurl()).into(holder.img);
+
+       //Click to next activity
+       holder.img.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent=new Intent(context,DetailsActivity.class);
+               intent.putExtra("image",model.getPurl());
+               intent.putExtra("rate",model.getRate());
+               intent.putExtra("name",model.getName());
+               intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+               context.startActivity(intent);
+           }
+       });
 
     }
 

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("students"), model.class)
                         .build();
 
-        adapter=new myadapter(options);
+        adapter=new myadapter(options, getApplicationContext());
         recview.setAdapter(adapter);
 
     }

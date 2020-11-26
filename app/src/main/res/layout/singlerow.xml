@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/emailtext"
+            android:id="@+id/calculate"
             android:text="rate*amount"
             android:textSize="25sp"
             android:textColor="#000"
