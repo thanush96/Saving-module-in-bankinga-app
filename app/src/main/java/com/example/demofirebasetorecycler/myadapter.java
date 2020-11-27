@@ -42,6 +42,9 @@ public class myadapter extends FirebaseRecyclerAdapter<model,myadapter.myviewhol
                intent.putExtra("image",model.getPurl());
                intent.putExtra("rate",model.getRate());
                intent.putExtra("name",model.getName());
+               intent.putExtra("address",model.getAddress());
+               intent.putExtra("mail",model.getMail());
+               intent.putExtra("tp",model.getTp());
                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                context.startActivity(intent);
            }

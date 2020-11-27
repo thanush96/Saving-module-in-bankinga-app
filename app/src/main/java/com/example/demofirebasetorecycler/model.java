@@ -2,16 +2,19 @@ package com.example.demofirebasetorecycler;
 
 public class model
 {
-  String name,rate,purl;
+  String name,rate,purl,mail,address,tp;
     model()
     {
 
     }
 
-    public model(String name, String rate, String purl) {
+    public model(String name, String rate, String purl, String mail, String address, String tp) {
         this.name = name;
         this.rate = rate;
         this.purl = purl;
+        this.mail = mail;
+        this.address = address;
+        this.tp = tp;
     }
 
     public String getName() {
@@ -36,5 +39,29 @@ public class model
 
     public void setPurl(String purl) {
         this.purl = purl;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getTp() {
+        return tp;
+    }
+
+    public void setTp(String tp) {
+        this.tp = tp;
     }
 }

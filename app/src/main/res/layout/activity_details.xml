@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView  xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,55 +7,176 @@
     tools:context=".DetailsActivity">
 
     <RelativeLayout
+        android:id="@+id/bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/cardview_dark_background">
+
+        <TextView
+            android:id="@+id/dname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Bank name"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/ic_launcher"
-                android:layout_centerVertical="true"
-                android:id="@+id/dimg"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#FF000000"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/dname"
-                android:text="This is Demo Name"
-                android:textStyle="bold"
-                android:textSize="25sp"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/dimg"
-                android:layout_marginLeft="10dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/drate"
-                android:text="This is Course Name"
-                android:textSize="25sp"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/dimg"
-                android:layout_below="@id/dname"
-                android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/drate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dname"
+            android:layout_marginLeft="10dp"
+            android:text="Interest Rate %"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/dcalculate"
-                android:text="rate*amount"
-                android:textSize="25sp"
-                android:textColor="#000"
-                android:layout_toRightOf="@id/dimg"
-                android:layout_below="@id/drate"
-                android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/dcalculate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/drate"
+            android:layout_marginLeft="10dp"
+            android:text="rate*amount"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dcalculate"
+            android:layout_marginLeft="10dp"
+            android:text="E-mail"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/daddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dmail"
+            android:layout_marginLeft="10dp"
+            android:text="Address"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/dtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daddress"
+            android:layout_marginLeft="10dp"
+            android:text="TP"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
 
 
-        </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bank">
 
-    </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/Cname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Full Name"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/cname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Cname"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="30dp"
+            android:inputType="text"
+            android:padding="10dp" />
+
+
+        <TextView
+            android:id="@+id/Cnic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cname"
+            android:layout_margin="15dp"
+            android:text="NIC Number"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/cnic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Cnic"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="30dp"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/Caddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cnic"
+            android:layout_margin="15dp"
+            android:text="Address"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/caddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Caddress"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="30dp"
+            android:inputType="text"
+            android:padding="10dp" />
+
+        <TextView
+            android:id="@+id/Ccontact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/caddress"
+            android:layout_margin="15dp"
+            android:text="Contect No"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/ccontact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Ccontact"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:drawablePadding="30dp"
+            android:inputType="text"
+            android:padding="10dp" />
+
+
+        <Button
+            android:id="@+id/btLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ccontact"
+            android:layout_centerVertical="true"
+            android:text="Apply"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</RelativeLayout>
