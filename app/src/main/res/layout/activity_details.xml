@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:background="@color/blue"
+        android:background="@drawable/bac2"
         >
 
         <TextView
@@ -254,7 +254,8 @@
             android:layout_below="@+id/ccontact"
             android:layout_centerVertical="true"
             android:text="Apply"
-            android:background="@color/blue"
+            android:background="@drawable/bac2"
+
             android:layout_centerHorizontal="true"
             android:textAllCaps="false" />
     </RelativeLayout>

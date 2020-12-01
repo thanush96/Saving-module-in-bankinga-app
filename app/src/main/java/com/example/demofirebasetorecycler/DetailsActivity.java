@@ -2,13 +2,18 @@ package com.example.demofirebasetorecycler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,12 +26,24 @@ public class DetailsActivity extends AppCompatActivity {
     EditText customername,customeraddress,customernic,customercontact,customermail;
     FirebaseDatabase rootNode;
     DatabaseReference reference;
+    Dialog dialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+        //DIALOG BOX INTIALIZE
+        dialog=new Dialog(DetailsActivity.this);
+        dialog.setContentView(R.layout.alert);
+        if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.LOLLIPOP){
+            dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.bac));
+        }
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.setCancelable(false);
+        dialog.getWindow().getAttributes().windowAnimations=R.style.animation;
+
 
         // img=(ImageView)findViewById(R.id.dimg);
         tv1 = (TextView) findViewById(R.id.dname);
@@ -35,11 +52,26 @@ public class DetailsActivity extends AppCompatActivity {
         tv4 = (TextView) findViewById(R.id.dmail);
         tv5 = (TextView) findViewById(R.id.dtp);
         type = (TextView) findViewById(R.id.dtype);
-        apply=(Button)findViewById(R.id.btnapply);
         customername=findViewById(R.id.cname);
         customeraddress=findViewById(R.id.caddress);
         customernic=findViewById(R.id.cnic);
         customercontact=findViewById(R.id.ccontact);
+
+
+        //Dialog box button actions
+        Button okey=dialog.findViewById(R.id.btnok);
+
+        okey.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Toast.makeText(DetailsActivity.this, "Accepted !", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+
+
+        apply=(Button)findViewById(R.id.btnapply);
 
         // img.setImageResource(getIntent().getIntExtra("image",0));
         tv1.setText(getIntent().getStringExtra("name"));
@@ -52,6 +84,10 @@ public class DetailsActivity extends AppCompatActivity {
         apply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //RUN DIALOG
+                dialog.show();
+
+                //STORE INTO DATABASE
                 rootNode=FirebaseDatabase.getInstance();
                 reference=rootNode.getReference("customers");
 
